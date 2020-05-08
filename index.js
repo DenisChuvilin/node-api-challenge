@@ -12,3 +12,24 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+
+//hook up express to server
+const express = require('express');
+const server = express();
+server.use(express.json());
+
+// hook up router to server
+const router = require('./routers/ExpressRouter');
+server.use('/api/projects', router);
+
+// return default response
+server.get('/', (req, res) => {
+  res.send({ message: ' Welcome to Node.js Sprint 1' });
+});
+
+//port used is 9000
+server.listen(9000, () => {
+  console.log(
+    '----------------------------------------\nserver is running on http://localhost:8000\n---------------------------------------- '
+  );
+});
