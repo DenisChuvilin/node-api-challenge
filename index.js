@@ -30,6 +30,6 @@ server.get('/', (req, res) => {
 //port used is 9000
 server.listen(9000, () => {
   console.log(
-    '----------------------------------------\nserver is running on http://localhost:8000\n---------------------------------------- '
+    '-------------------------------------------\nserver is running on http://localhost:8000\n------------------------------------------- '
   );
 });
