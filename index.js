@@ -19,7 +19,7 @@ const server = express();
 server.use(express.json());
 
 // hook up router to server
-const router = require('./routers/ExpressRouter');
+const router = require('./routers/ProjectRouter');
 server.use('/api/projects', router);
 
 // return default response
@@ -30,6 +30,6 @@ server.get('/', (req, res) => {
 //port used is 9000
 server.listen(9000, () => {
   console.log(
-    '-------------------------------------------\nserver is running on http://localhost:8000\n------------------------------------------- '
+    '-------------------------------------------\nserver is running on http://localhost:9000\n------------------------------------------- '
   );
 });
