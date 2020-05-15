@@ -15,12 +15,15 @@ Go code!
 
 //hook up express to server
 const express = require('express');
+const projectRouter = require('./routers/ProjectRouter');
+const actionsRouter = require('./routers/ActionsRouter');
+
 const server = express();
 server.use(express.json());
 
-// hook up router to server
-const router = require('./routers/ProjectRouter');
-server.use('/api/projects', router);
+// hook up routers to server
+server.use('/api/projects/actions', actionsRouter);
+server.use('/api/projects', projectRouter);
 
 // return default response
 server.get('/', (req, res) => {

@@ -1,4 +1,4 @@
-const db = require('../dbConfig.js');
+const dbActions = require('../dbConfig.js');
 const mappers = require('./mappers');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function get(id) {
-  let query = db('actions');
+  let query = dbActions('actions');
 
   if (id) {
     return query
@@ -30,18 +30,18 @@ function get(id) {
 }
 
 function insert(action) {
-  return db('actions')
+  return dbActions('actions')
     .insert(action, 'id')
     .then(([id]) => get(id));
 }
 
 function update(id, changes) {
-  return db('actions')
+  return dbActions('actions')
     .where('id', id)
     .update(changes)
     .then((count) => (count > 0 ? get(id) : null));
 }
 
 function remove(id) {
-  return db('actions').where('id', id).del();
+  return dbActions('actions').where('id', id).del();
 }
